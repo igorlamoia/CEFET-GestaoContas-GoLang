@@ -22,7 +22,7 @@ func GetBankTypeKey() string {
 	ownerType = strings.ToUpper(ownerType)
 	if(ownerType != "PF" && ownerType != "PJ") {
 		fmt.Println("Tipo de conta inválido")
-		os.Exit(1)
+		return ""
 	}
 	return bank + "_" + strings.ToUpper(ownerType)
 }
