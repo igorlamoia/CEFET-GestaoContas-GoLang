@@ -15,7 +15,7 @@ func Deposit(accountsMap map[string]structs.Account, bankKey string, account str
 	}
 	value, err := strconv.ParseFloat(utils.GetInput("Digite o valor do depósito"), 64)
 	if err != nil {
-		fmt.Println("Valor inválIdo")
+		fmt.Println("Valor inválido")
 		return
 	}
 	account.Deposit(value)

@@ -15,7 +15,7 @@ func Withdraw(accountsMap map[string]structs.Account, bankKey string, account st
 	}
 	value, err := strconv.ParseFloat(utils.GetInput("Digite o valor do saque"), 64)
 	if err != nil {
-		fmt.Println("Valor inválIdo")
+		fmt.Println("Valor inválido")
 		return
 	}
 	account.Withdraw(value)

@@ -21,7 +21,7 @@ func Transfer(accountsMap map[string]structs.Account, bankKey string, account st
 	}
 	value, err := strconv.ParseFloat(utils.GetInput("Digite o valor da Transferência"), 64)
 	if err != nil {
-		fmt.Println("Valor inválIdo")
+		fmt.Println("Valor inválido")
 		return
 	}
 	account.Transfer(value, &destinyAccount)

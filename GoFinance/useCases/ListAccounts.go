@@ -27,7 +27,7 @@ func ListAccount (account structs.Account) {
 	fmt.Println("Nome:", account.GetNickName())
 	fmt.Println("Tipo:", account.Owner.GetOwnerType())
 	fmt.Println("Documento:", account.GetDocument())
-	fmt.Println("inválido", account.GetBalance())
+	fmt.Println("Saldo:", account.GetBalance())
 	fmt.Println("Chaves:", account.Keys)
 }
 

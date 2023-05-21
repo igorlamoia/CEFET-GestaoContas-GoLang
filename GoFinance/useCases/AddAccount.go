@@ -25,7 +25,7 @@ func AddAccount(accountsMap map[string]structs.Account) {
 		Bank := utils.GetInput("Digite o banco da conta")
 		Balance, err := strconv.ParseFloat(utils.GetInput("Valor do depósito inicial da conta"), 64)
 		if err != nil {
-			fmt.Println("Valor inválIdo")
+			fmt.Println("Valor inválido")
 			return
 		}
 		Id := utils.GetRandomNumber()
@@ -38,7 +38,7 @@ func AddAccount(accountsMap map[string]structs.Account) {
 	Bank := utils.GetInput("Digite o banco da conta da empresa")
 	Balance, err := strconv.ParseFloat(utils.GetInput("Valor do depósito inicial da conta"), 64)
 	if err != nil {
-		fmt.Println("Valor inválIdo")
+		fmt.Println("Valor inválido")
 		return
 	}
 	Id := utils.GetRandomNumber()
