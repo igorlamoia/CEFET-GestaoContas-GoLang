@@ -19,3 +19,7 @@ Tipos de dados primitivos;
 - Vetores ou Matrizes;
 - Registros;
 - Ponteiros e referências.
+
+## Rodando o projeto
+
+`go run .`
