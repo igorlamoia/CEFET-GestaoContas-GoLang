@@ -8,12 +8,13 @@ import (
 )
 
 func RemoveAccount(accountsMap map[string]structs.Account) {
-	document := utils.GetInput("Digite o documento da conta que deseja remover")
-	_, ok := accountsMap[document]
+	fmt.Println("Excluindo conta")
+	accountKey := utils.GetBankTypeKey()
+	_, ok := accountsMap[accountKey]
 	if !ok {
 		fmt.Println("Conta não encontrada")
 		return
 	}
-	delete(accountsMap, document)
-	fmt.Println("Conta removIda com sucesso")
+	delete(accountsMap, accountKey)
+	fmt.Println("Conta removida com sucesso")
 }

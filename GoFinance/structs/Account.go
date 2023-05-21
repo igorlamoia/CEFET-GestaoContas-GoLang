@@ -15,6 +15,9 @@ func (a Account) GetDocument() string {
 func (a Account) GetNickName() string {
 	return a.Owner.GetNickName()
 }
+func (a *Account) GetBalance() float64 {
+	return a.Balance
+}
 
 func (a *Account) Withdraw(value float64) bool {
 	if a.Balance < value {
@@ -46,8 +49,4 @@ func (a *Account) Transfer(value float64, destiny *Account) bool {
 	}
 	fmt.Println("Saldo insuficiente")
 	return false
-}
-
-func (a *Account) GetBalance() float64 {
-	return a.Balance
 }

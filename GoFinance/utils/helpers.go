@@ -3,9 +3,39 @@ package utils
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"os/exec"
 	"strings"
+	"time"
 )
+
+func ClearConsole() {
+	cmd := exec.Command("cmd", "/c", "cls")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
+
+func GetBankTypeKey() string {
+	bank := GetInput("Digite o nome do banco")
+	ownerType := GetInput("Digite o tipo de conta: PF (Pessoa física) ou PJ (Pessoa Jurídica)")
+	ownerType = strings.ToUpper(ownerType)
+	if(ownerType != "PF" && ownerType != "PJ") {
+		fmt.Println("Tipo de conta inválido")
+		os.Exit(1)
+	}
+	return bank + "_" + strings.ToUpper(ownerType)
+}
+
+func GetRandomNumber() int {
+	seed := time.Now().UnixNano() // Use current time as the seed
+	randSrc := rand.NewSource(seed)
+	randGen := rand.New(randSrc)
+	min := 1000
+	max := 9999
+
+	return randGen.Intn(max-min+1) + min
+}
 
 func GetInput(message string) string {
 	reader := bufio.NewReader(os.Stdin)
