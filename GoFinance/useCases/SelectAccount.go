@@ -2,13 +2,17 @@ package useCases
 
 import (
 	"fmt"
-	"strconv"
 
 	"gofinance.com/GoFinance/structs"
 	"gofinance.com/GoFinance/utils"
 )
 
-func SelectAccount(accountsMap map[string]structs.Account) {
+func SelectAccountAndMakeOperations(accountsMap map[string]structs.Account) {
+	if len(accountsMap) == 0 {
+		fmt.Println("Não há contas cadastrados")
+		return
+	}
+	ListBanks(accountsMap)
 	bankKey := utils.GetBankTypeKey()
 	account, ok := accountsMap[bankKey]
 	if !ok {
@@ -25,43 +29,20 @@ func SelectAccount(accountsMap map[string]structs.Account) {
 		utils.ClearConsole()
 		switch option {
 		case "1":
-			fmt.Println("Saldo:", account.GetBalance())
+			Deposit(accountsMap, bankKey, account)
+			return
 		case "2":
-			value, err := strconv.ParseFloat(utils.GetInput("Digite o valor do depósito"), 64)
-			if err != nil {
-				fmt.Println("Valor inválIdo")
-				break
-			}
-			account.Deposit(value)
-			accountsMap[bankKey] = account
+			Withdraw(accountsMap, bankKey, account)
+			return
 		case "3":
-			value, err := strconv.ParseFloat(utils.GetInput("Digite o valor do saque"), 64)
-			if err != nil {
-				fmt.Println("Valor inválIdo")
-				break
-			}
-			message := account.Withdraw(value)
-			fmt.Println(message, "Saldo:", account.GetBalance())
-			accountsMap[bankKey] = account
-		case "4":
-			bankKeyDestiny := utils.GetBankTypeKey()
-			destinyAccount, ok := accountsMap[bankKeyDestiny]
-			if !ok {
-				fmt.Println("Conta não encontrada")
-				break
-			}
-			value, err := strconv.ParseFloat(utils.GetInput("Digite o valor da Transferência"), 64)
-			if err != nil {
-				fmt.Println("Valor inválIdo")
-				break
-			}
-			account.Transfer(value, &destinyAccount)
-			accountsMap[bankKey] = account
-			accountsMap[bankKeyDestiny] = destinyAccount
+			ListBanks(accountsMap)
+			fmt.Println("Digite o banco de destino")
+			Transfer(accountsMap, bankKey, account)
+			return
 		case "0":
 			return
 		default:
-			fmt.Println("Opção inválIda")
+			fmt.Println("Opção inválida")
 		}
 	}
 }

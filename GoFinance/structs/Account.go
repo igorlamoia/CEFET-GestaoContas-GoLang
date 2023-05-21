@@ -33,7 +33,7 @@ func (a *Account) Withdraw(value float64) bool {
 func (a *Account) Deposit(value float64) bool {
 	if value > 0 {
 		a.Balance += value
-		fmt.Println("Depósito realizado com sucesso", a.Balance)
+		fmt.Println("Depósito realizado com sucesso, novo saldo:", a.Balance)
 		return true
 	}
 	fmt.Println("Valor inválido", a.Balance)

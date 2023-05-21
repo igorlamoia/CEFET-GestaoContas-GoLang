@@ -21,9 +21,9 @@ func manager() {
 		utils.ClearConsole()
 		switch option {
 		case "1":
-			useCases.CreateAccount(accountsMap)
+			useCases.AddAccount(accountsMap)
 		case "2":
-			useCases.SelectAccount(accountsMap)
+			useCases.SelectAccountAndMakeOperations(accountsMap)
 		case "3":
 			useCases.ListAccounts(accountsMap)
 		case "4":
@@ -31,7 +31,7 @@ func manager() {
 		case "0":
 			return
 		default:
-			fmt.Println("Opção inválIda")
+			fmt.Println("Opção inválida")
 		}
 	}
 }

@@ -9,11 +9,11 @@ import (
 	"gofinance.com/GoFinance/utils"
 )
 
-func CreateAccount(accountsMap map[string]structs.Account) {
+func AddAccount(accountsMap map[string]structs.Account) {
 	OwnerType := utils.GetInput("Digite o tipo de conta que deseja criar: PF (Pesso física) ou PJ (Pessoa Jurídica?")
 	OwnerType = strings.ToUpper(OwnerType)
 	if OwnerType != "PF" && OwnerType != "PJ" {
-		fmt.Println("Tipo de conta inválIda")
+		fmt.Println("Tipo de conta inválida")
 		return
 	}
 	// celular := utils.GetInput("Digite a senha da conta")

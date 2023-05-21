@@ -8,7 +8,12 @@ import (
 )
 
 func RemoveAccount(accountsMap map[string]structs.Account) {
+	if len(accountsMap) == 0 {
+		fmt.Println("Não há contas cadastradas")
+		return
+	}
 	fmt.Println("Excluindo conta")
+	ListBanks(accountsMap)
 	accountKey := utils.GetBankTypeKey()
 	_, ok := accountsMap[accountKey]
 	if !ok {

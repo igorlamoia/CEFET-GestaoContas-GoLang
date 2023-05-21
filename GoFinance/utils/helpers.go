@@ -51,20 +51,19 @@ func GetInput(message string) string {
 
 func PrintMenuManager() {
 	fmt.Println(`
-		1 - Criar conta\n
-		2 - Entrar em conta\n
-		3 - Listar contas\n
-		4 - Remover conta\n
+		1 - Adicionar conta
+		2 - Movimentar conta
+		3 - Listar contas
+		4 - Remover conta
 		0 - Sair
 	`)
 }
 
 func PrintMenuAccount() {
 	fmt.Println(`
-		1 - Saldo\n
-		2 - Depósito\n
-		3 - Saque\n
-		4 - Transferência\n
-		0 - Voltar para gerenciamento de contas\n
+		1 - Depósito
+		2 - Saque
+		3 - Transferência
+		0 - Voltar para gerenciamento de contas
 	`)
 }

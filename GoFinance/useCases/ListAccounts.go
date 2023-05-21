@@ -27,6 +27,19 @@ func ListAccount (account structs.Account) {
 	fmt.Println("Nome:", account.GetNickName())
 	fmt.Println("Tipo:", account.Owner.GetOwnerType())
 	fmt.Println("Documento:", account.GetDocument())
-	fmt.Println("Saldo:", account.GetBalance())
+	fmt.Println("inválido", account.GetBalance())
 	fmt.Println("Chaves:", account.Keys)
+}
+
+func ListBanks (accountsMap map[string]structs.Account) {
+	if len(accountsMap) == 0 {
+		fmt.Println("Não há bancos cadastrados")
+		return
+	}
+	fmt.Println("----------------------")
+	fmt.Println("Bancos e contas cadastradas:")
+	for key, _ := range accountsMap {
+		fmt.Println("Banco", key)
+	}
+	fmt.Println("----------------------")
 }
